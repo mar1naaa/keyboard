@@ -13,3 +13,7 @@ keyboard_finger = {
     rfi5 : [('0','-','=','з','ж','.','х','э','ъ',),(']','!','щ','г','ж','ц','б','з','п','ъ')]
     
 }
+
+
+vyzov_finger_count = {'lfi5': 0, 'lfi4': 0, 'lfi3': 0, 'lfi2': 0, 'lfi1': 0, 'rfi2': 0, 'rfi3': 0, 'rfi4': 0, 'rfi5': 0}
+qwerty_finger_count = {'lfi5': 0, 'lfi4': 0, 'lfi3': 0, 'lfi2': 0, 'lfi1': 0, 'rfi2': 0, 'rfi3': 0, 'rfi4': 0, 'rfi5': 0}
