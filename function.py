@@ -1,3 +1,8 @@
+"""
+функции, применяемые в лабе
+10-15 штук, 2-3 модуля
+"""
+
 import matplotlib.pyplot as plt
 import numpy as np
 from dict_finger import *
@@ -8,11 +13,10 @@ def read_file(filename):#Построчное считывание файла
     text = [line.strip() for line in f.readlines()]
   return text
     
-"""
 def count_spaces(text): #кол-во пробелов в тексте
     qwerty_finger_count['lf1'] += text.count(' ')
     vyzov_finger_count['lf1'] += text.count(' ')
-"""
+
 
 def find_finger_qwerty(character, keyboard_finger_qwerty):#Определение пальца по символу в qwerty
     character = character.lower()
@@ -43,8 +47,8 @@ def vyvod_gistogramma(layout1, layout2):
     Функция для построения горизонтальной гистограммы с количеством нажатий пальцами
     для двух раскладок клавиатуры.
 
-    - layout1: список количества нажатий для йцукен
-    - layout2: список количества нажатий для вызов
+    - layout1: количество нажатий для йцукен
+    - layout2: количество нажатий для вызов
 
     """
     fingers = ['Мизинец (левая)', 'Безымянный (левая)', 'Средний (левая)', 'Указательный (левая)', 'Большой (левая)', 'Указательный (правая)', 'Средний (правая)', 'Безымянный (правая)', 'Мизинец (правая)']
@@ -65,6 +69,5 @@ def vyvod_gistogramma(layout1, layout2):
 
     plt.legend()
 
-    # Показ гистограммы
     plt.tight_layout()
     plt.show()
