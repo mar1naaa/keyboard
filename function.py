@@ -5,31 +5,35 @@ from dict_finger import *
 def read_file(filename):#Построчное считывание файла
 
   with open(filename, "r") as f:
-    lines = f.readlines()
-  return lines
+    text = [line.strip() for line in f.readlines()]
+  return text
 
-def find_finger_qwerty(character, keyboard_finger_qwerty):#Определение пальца по симвалу в qwerty
+def count_spaces(text): #кол-во пробелов в тексте
+    qwerty_finger_count['lf1'] += text.count(' ')
+    vyzov_finger_count['lf1'] += text.count(' ')
+
+def find_finger_qwerty(character, keyboard_finger_qwerty):#Определение пальца по символу в qwerty
     character = character.lower()
     for finger_name, characters in keyboard_finger_qwerty.items():
         if character in characters:
             return finger_name
     return "Invalid character: {}".format(character)
 
-def find_finger_vyzov(character, keyboard_finger_vyzov):#Определение пальца по симвалу в vyzov
+def find_finger_vyzov(character, keyboard_finger_vyzov):#Определение пальца по символу в vyzov
     character = character.lower()
     for finger_name, characters in keyboard_finger_vyzov.items():
         if character in characters:
             return finger_name
     return "Invalid character: {}".format(character)
 
-def count_finger_qwerty(result, qwerty_finger_count):#Добавляет единицу в счётчик пальцев а qwerty
+def count_finger_qwerty(result, qwerty_finger_count):#Добавляет единицу в счётчик пальцев в qwerty
     if result in qwerty_finger_count:
-        qwerty_finger_count[result] =+ 1
+        qwerty_finger_count[result] += 1
     return qwerty_finger_count
 
-def ount_finger_vyzov(result, vyzov_finger_count):#Добавляет единицу в счётчик пальцев а vyzov
+def ount_finger_vyzov(result, vyzov_finger_count):#Добавляет единицу в счётчик пальцев в vyzov
     if result in vyzov_finger_count:
-        vyzov_finger_count[result] =+ 1
+        vyzov_finger_count[result] += 1
     return vyzov_finger_count
 
 def vyvod_gistogramma(layout1, layout2):
