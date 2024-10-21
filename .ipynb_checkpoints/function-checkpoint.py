@@ -7,10 +7,12 @@ def read_file(filename):#Построчное считывание файла
   with open(filename, "r") as f:
     text = [line.strip() for line in f.readlines()]
   return text
-
+    
+"""
 def count_spaces(text): #кол-во пробелов в тексте
     qwerty_finger_count['lf1'] += text.count(' ')
     vyzov_finger_count['lf1'] += text.count(' ')
+"""
 
 def find_finger_qwerty(character, keyboard_finger_qwerty):#Определение пальца по символу в qwerty
     character = character.lower()
