@@ -1,11 +1,9 @@
 from function import *
 
 if __name__ == "__main__":
-    """
-    filename = "/Users/marinazhinzhikova/Documents/keyboard/readtext.txt"
-    text = read_file(filename)
-    text = ''.join(text)
-    finger = find_finger_qwerty(text, keyboard_finger_qwerty)
-    finger_count = count_finger_qwerty(finger, qwerty_finger_count)
-    
-    """
+
+    text = input("Enter the path to the text file: ")
+    qwerty_finger_load = count_finger_load_qwerty(text)
+    vyzov_finger_load = count_finger_load_vyzov(text)
+    print(qwerty_finger_load)
+    print(vyzov_finger_load)

@@ -1,42 +1,36 @@
+"""
+Файл со всеми функциями, требующимися при расчете нагрузки на пальцы
+"""
+
 import matplotlib.pyplot as plt
 import numpy as np
 from dict_finger import *
 
-def read_file(filename):#Построчное считывание файла
+def find_finger(character, keyboard_layout): #функция, определяющая какая буква/символ нажат
+  character = character.lower()
+  for finger_name, characters in keyboard_layout.items():
+    if character in characters:
+        return finger_name
+  return "Invalid character: {}".format(character)
 
-  with open(filename, "r") as f:
-    text = [line.strip() for line in f.readlines()]
-  return text
-    
-"""
-def count_spaces(text): #кол-во пробелов в тексте
-    qwerty_finger_count['lf1'] += text.count(' ')
-    vyzov_finger_count['lf1'] += text.count(' ')
-"""
+def count_finger_load_qwerty(text):#определяем какому пальцу принадлежит символ в йцукен
+  with open(text, "r", encoding='utf-8') as f:
+    text = f.read()
+  for character in text:
+    finger_name = find_finger(character, keyboard_finger_qwerty)
+    if finger_name in dict_finger.qwerty_finger_count:
+      dict_finger.qwerty_finger_count[finger_name] += 1
+  return qwerty_finger_count
 
-def find_finger_qwerty(character, keyboard_finger_qwerty):#Определение пальца по символу в qwerty
-    character = character.lower()
-    for finger_name, characters in keyboard_finger_qwerty.items():
-        if character in characters:
-            return finger_name
-    return "Invalid character: {}".format(character)
+def count_finger_load_vyzov(text):#определяем какому пальцу принадлежит символ в вызов
+  with open(text, "r", encoding='utf-8') as f:
+    text = f.read()
+  for character in text:
+    finger_name = find_finger(character, keyboard_finger_vyzov)
+    if finger_name in dict_finger.vyzov_finger_count:
+      vyzov_finger_count[finger_name] += 1
+  return vyzov_finger_count
 
-def find_finger_vyzov(character, keyboard_finger_vyzov):#Определение пальца по символу в vyzov
-    character = character.lower()
-    for finger_name, characters in keyboard_finger_vyzov.items():
-        if character in characters:
-            return finger_name
-    return "Invalid character: {}".format(character)
-
-def count_finger_qwerty(result, qwerty_finger_count):#Добавляет единицу в счётчик пальцев в qwerty
-    if result in qwerty_finger_count:
-        qwerty_finger_count[result] += 1
-    return qwerty_finger_count
-
-def ount_finger_vyzov(result, vyzov_finger_count):#Добавляет единицу в счётчик пальцев в vyzov
-    if result in vyzov_finger_count:
-        vyzov_finger_count[result] += 1
-    return vyzov_finger_count
 
 def vyvod_gistogramma(layout1, layout2):
     """
@@ -65,6 +59,5 @@ def vyvod_gistogramma(layout1, layout2):
 
     plt.legend()
 
-    # Показ гистограммы
     plt.tight_layout()
     plt.show()
