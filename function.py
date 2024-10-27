@@ -1,7 +1,7 @@
 """
 Файл со всеми функциями, требующимися при расчете нагрузки на пальцы
 """
-
+import dict_finger
 import matplotlib.pyplot as plt
 import numpy as np
 from dict_finger import *
@@ -42,7 +42,7 @@ def find_finger(character, keyboard_layout):
      >>> find_finger('!', layout)
      'Invalid character: !'
      """
-  character = character.lower()
+  #character = character.lower()
   for finger_name, characters in keyboard_layout.items():
     if character in characters:
         return finger_name
@@ -72,9 +72,12 @@ def count_finger_load_qwerty(text):
   with open(text, "r", encoding='utf-8') as f:
     text = f.read()
   for character in text:
-    finger_name = find_finger(character, keyboard_finger_qwerty)
+    finger_name = find_finger(character.lower(), keyboard_finger_qwerty)
     if finger_name in dict_finger.qwerty_finger_count:
       dict_finger.qwerty_finger_count[finger_name] += 1
+      if character.isupper():
+        shift_finger= 'lfi5'
+        dict_finger.qwerty_finger_count[shift_finger] += 1
   layout_1 = list(qwerty_finger_count.values())
   return layout_1
 
@@ -102,9 +105,12 @@ def count_finger_load_vyzov(text):
   with open(text, "r", encoding='utf-8') as f:
     text = f.read()
   for character in text:
-    finger_name = find_finger(character, keyboard_finger_vyzov)
+    finger_name = find_finger(character.lower(), keyboard_finger_vyzov)
     if finger_name in dict_finger.vyzov_finger_count:
-      vyzov_finger_count[finger_name] += 1
+      dict_finger.vyzov_finger_count[finger_name] += 1
+      if character.isupper():
+        shift_finger= 'lfi5'
+        dict_finger.vyzov_finger_count[shift_finger] += 1
   layout_2 = list(vyzov_finger_count.values())
   return layout_2
 
@@ -143,6 +149,14 @@ def vyvod_gistogramma(layout1, layout2):
                alpha=1.0)
   plt.ylabel('Пальцы')
   plt.xlabel('Количество нажатий')
+  plt.title('Сравнение нагрузок на пальцы в раскладках йцукен и вызов')
+  plt.yticks(index, fingers)
+  plt.figtext(0.2, 0.01, f"Вывод: йцукен для лохов, вызов для пацанов!" ,wrap=True, horizontalalignment= 'center', fontsize=10)
+
+
+  plt.legend()
+
+  plt.tight_layout()
   plt.show()
 
 def load_hand_left(list):
@@ -202,3 +216,4 @@ def load_hand_right(list):
   general_sum = sum(list[start_index_1:end_index_1])
   procent = int((partial_sum * 100) / general_sum)
   return procent
+

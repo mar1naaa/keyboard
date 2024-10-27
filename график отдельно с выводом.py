@@ -27,6 +27,8 @@ def plot_finger_usage(layout1, layout2):
     plt.xlabel('Количество нажатий')
     plt.title('Сравнение нагрузок на пальцы в раскладках йцукен и вызов')
     plt.yticks(index, fingers)
+    plt.figtext(0.2, 0.01, f"Вывод: йцукен для лохов, вызов для пацанов!" ,wrap=True, horizontalalignment= 'center', fontsize=10)
+    
 
     # Легенда
     plt.legend()
