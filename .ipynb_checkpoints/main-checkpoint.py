@@ -30,7 +30,7 @@ from function import *
 
 if __name__ == "__main__":
 
-    text = input("Введите файл с текстом: ")
+    text = "/Users/marinazhinzhikova/Documents/keyboard/readtext.txt"
     qwerty_finger_load = count_finger_load_qwerty(text)
     vyzov_finger_load = count_finger_load_vyzov(text)
 
@@ -39,7 +39,7 @@ if __name__ == "__main__":
     left_vyzov = load_hand_left(vyzov_finger_load)
     right_vyzov = load_hand_right(vyzov_finger_load)
     print('Qwerty')
-    print('Нагрузка на левую руку в процентах:', left_qwerty, '%', 'Нагрузка на правую руку в процентах:', right_qwerty, '%')
+    print('Нагрузка на левую руку в процентах:', left_qwerty, '%')
     print('Нагрузка на правую руку в процентах:', right_qwerty, '%')
     print('VYZOV')
     print('Нагрузка на левую руку в процентах:', left_vyzov, '%')
