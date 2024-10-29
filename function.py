@@ -39,8 +39,6 @@ def count_finger_load_qwerty(text):
         Подсчитывает нагрузку на пальцы, использованные при наборе текста
         на клавиатурной раскладке QWERTY.
     """
-    with open(text, "r", encoding='utf-8') as f:
-        text = f.read()
     for character in text:
         finger_name, flag_nado = \
              find_finger(character.lower(), keyboard_finger_qwerty)
@@ -58,8 +56,6 @@ def count_finger_load_vyzov(text):
         Подсчитывает нагрузку на пальцы, использованные при наборе текста
         в раскладке "Вызов".
     """
-    with open(text, "r", encoding='utf-8') as f:
-        text = f.read()
     for character in text:
         finger_name, flag_nado = \
              find_finger(character.lower(), keyboard_finger_vyzov)

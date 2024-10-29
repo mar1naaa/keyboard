@@ -29,8 +29,8 @@
 from function import *
 
 if __name__ == "__main__":
-
-    text = "/Users/marinazhinzhikova/Documents/keyboard/1grams-3.txt"
+    with open('1grams-3.txt', "r", encoding='utf-8') as f:
+        text = f.read()
     qwerty_finger_load = count_finger_load_qwerty(text)
     vyzov_finger_load = count_finger_load_vyzov(text)
 
