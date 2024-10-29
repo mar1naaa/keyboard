@@ -19,15 +19,15 @@ keyboard_finger_qwerty = {
 }
 
 keyboard_finger_vyzov = {
-    "lfi5": ('ю', 'ё', 'в', 'ч', 'ш'),
+    "lfi5": ('ё', 'в', 'ч', 'ш'),
     "lfi4": ('ы', 'и', 'х', '['),
-    "lfi3": ('э', 'о', 'е', 'й'),
-    "lfi2": ('Э', 'у', 'а', 'к', '(', 'ь', ',', '_'),
+    "lfi3": ('о', 'е', 'й'),
+    "lfi2": ('у', 'а', 'к', '(', 'ь', ',', '_'),
     "lfi1": ' ',
     "rfi2": ('=', '*', 'ё', '.', '/', '^', 'н', 'р'),
     "rfi3": (')', 'д', 'т', 'м'),
     "rfi4": ('+', 'я', 'с', 'ф'),
-    "rfi5": (']', '!', 'щ', 'г', 'ж', 'ц', 'б', 'з', 'п', 'ъ')
+    "rfi5": (']', '!', 'г', 'ж', 'б', 'з', 'п')
 }
 
 keyboard_finger_qwerty_dop = {
@@ -52,6 +52,15 @@ keyboard_finger_vyzov_dop = {
     "rfi5": ('6', '8', '#', '@')
 }
 
+keyboard_finger_vyzov_alt = {
+    "lfi5": 'ц',
+    "lfi3": 'э',
+    "lfi2": 'ю',
+    "rfi2": 'щ',
+    "rfi3": 'ъ',
+    "rfi5": '№'
+}
 
-vyzov_finger_count = {'lfi5': 0, 'lfi4': 0, 'lfi3': 0, 'lfi2': 0, 'lfi1': 0, 'rfi2': 0, 'rfi3': 0, 'rfi4': 0, 'rfi5': 0}
+
+vyzov_finger_count = {'lfi5': 0, 'lfi4': 0, 'lfi3': 0, 'lfi2': 0,  'lfi1': 0, 'rfi2': 0, 'rfi3': 0, 'rfi4': 0, 'rfi5': 0}
 qwerty_finger_count = {'lfi5': 0, 'lfi4': 0, 'lfi3': 0, 'lfi2': 0, 'lfi1': 0, 'rfi2': 0, 'rfi3': 0, 'rfi4': 0, 'rfi5': 0}

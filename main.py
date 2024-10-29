@@ -29,11 +29,10 @@
 from function import *
 
 if __name__ == "__main__":
-
-    text = "/Users/marinazhinzhikova/Documents/keyboard/1grams-3.txt"
+    with open('1grams-3.txt', 'r', encoding='utf-8') as f:
+        text = f.read()
     qwerty_finger_load = count_finger_load_qwerty(text)
     vyzov_finger_load = count_finger_load_vyzov(text)
-
     left_qwerty = load_hand_left(qwerty_finger_load)
     right_qwerty = load_hand_right(qwerty_finger_load)
     left_vyzov = load_hand_left(vyzov_finger_load)
@@ -44,4 +43,7 @@ if __name__ == "__main__":
     print('ВЫЗОВ')
     print('Нагрузка на левую руку в процентах:', left_vyzov, '%')
     print('Нагрузка на правую руку в процентах:', right_vyzov, '%')
+    print('Вывод: В раскладке ВЫЗОВ нагрузка на указательные пальцы '
+          'много меньше, чем в раскладке ЙЦУКЕН. При этом на все '
+          'другие пальцы нагрузка в ВЫЗОВе больше, чем в ЙЦУКЕН')
     vyvod_gistogramma(qwerty_finger_load, vyzov_finger_load)
