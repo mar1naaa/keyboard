@@ -39,6 +39,8 @@ def count_finger_load_qwerty(text):
         Подсчитывает нагрузку на пальцы, использованные при наборе текста
         на клавиатурной раскладке QWERTY.
     """
+    with open(text, "r", encoding='utf-8') as f:
+        text = f.read()
     for character in text:
         finger_name, flag_nado = \
              find_finger(character.lower(), keyboard_finger_qwerty)
@@ -56,6 +58,8 @@ def count_finger_load_vyzov(text):
         Подсчитывает нагрузку на пальцы, использованные при наборе текста
         в раскладке "Вызов".
     """
+    with open(text, "r", encoding='utf-8') as f:
+        text = f.read()
     for character in text:
         finger_name, flag_nado = \
              find_finger(character.lower(), keyboard_finger_vyzov)
@@ -90,6 +94,9 @@ def vyvod_gistogramma(layout1, layout2):
     plt.xlabel('Количество нажатий')
     plt.title('Сравнение нагрузок на пальцы в раскладках йцукен и вызов')
     plt.yticks(index, fingers)
+    plt.figtext(0.2, 0.01, f"Вывод: йцукен для лохов, вызов для пацанов! \
+                (вышло наоборот)",
+                wrap=True, horizontalalignment='center', fontsize=10)
     plt.legend()
     plt.tight_layout()
     plt.show()
