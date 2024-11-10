@@ -202,3 +202,9 @@ def load_hand_right(list):
   general_sum = sum(list[start_index_1:end_index_1])
   procent = int((partial_sum * 100) / general_sum)
   return procent
+def clicks:
+  fing=['левый мизинец','левый безымянный','левый средний','левый указательный','левый большой','правый большой',
+  'правый указательный','правый средний','правый безымянный','правый мизинец']
+  fing_d_qwerty= dict(zip(fing,layout_1))
+  fing_d_vyzov=dict(zip(fing,layout_2))
+  return fing_d_qwerty,fing_d_vyzov
