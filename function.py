@@ -11,7 +11,9 @@ from dict_finger import keyboard_finger_qwerty, \
     keyboard_finger_vyzov_dop, vyzov_finger_count, \
     dictor_finger_count, qwerty_finger_count, \
     scoropis_finger_count, penalty_table_qwerty, \
-    penalty_table_qwerty_dop, penalty_table_vyzov, penalty_table_vyzov_dop, count_penalty_qwerty, count_penalty_vyzov
+    penalty_table_qwerty_dop, penalty_table_vyzov,\
+    penalty_table_vyzov_dop, count_penalty_qwerty,\
+    count_penalty_vyzov
 
 
 def find_finger(character, keyboard_layout):
@@ -312,9 +314,8 @@ def proucent_penalty(qwerty, vyzov):
     pr[9] = abs(round(((qwerty[9]-vyzov[9])/((qwerty[9]+vyzov[9])/2))*100))
     return pr
 
-def vyvod_gistogramma(layout1, layout2, layout3, layout4):
-    fig, ax = plt.subplots(figsize=(10, 6))
-    plt.tight_layout()
+def vyvod_gistogramma(layout1, layout2, layout3, layout4, layout5, layout6):
+    plt.figure(figsize=(10, 6))
     fingers = ['Мизинец (левая)', 'Безымянный (левая)', 'Средний (левая)',
                'Указательный (левая)', 'Большой (левая)',
                'Большой (правая)', 'Указательный (правая)',
@@ -345,12 +346,8 @@ def vyvod_gistogramma(layout1, layout2, layout3, layout4):
     plt.yticks(index, fingers)
     plt.legend()
     plt.tight_layout()
-    plt.show()
 
-
-def vyvod_gistogramma2(layout5, layout6):
-    fig, ax = plt.subplots(figsize=(10, 6))
-    plt.tight_layout()
+    plt.figure(figsize=(10, 6))
     fingers = ['Мизинец (левая)', 'Безымянный (левая)', 'Средний (левая)', 'Указательный (левая)', 'Большой (левая)',
                'Большой (правая)', 'Указательный (правая)', 'Средний (правая)', 'Безымянный (правая)',
                'Мизинец (правая)']
