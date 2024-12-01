@@ -22,17 +22,21 @@
 Нагрузка на левую руку в процентах: Z% Нагрузка на правую руку в процентах: W%
 """
 
-from function import count_finger_load_dictor,\
-    count_finger_load_qwerty, count_finger_load_scoropis,\
-    count_finger_load_vyzov,load_hand_left,\
-    load_hand_right,vyvod_gistogramma
+from function import count_finger_load_dictor, \
+    count_finger_load_qwerty, count_finger_load_scoropis, \
+    count_finger_load_vyzov, load_hand_left, \
+    load_hand_right, vyvod_gistogramma, count_load_penalty_qwerty, \
+    count_load_penalty_vyzov, proucent_penalty, vyvod_gistogramma2
+
 if __name__ == "__main__":
-    with open('full_text.txt', "r", encoding='utf-8') as f:
+    with open('voina-i-mir.txt', "r", encoding='utf-8') as f:
         text = f.read()
     qwerty_finger_load = count_finger_load_qwerty(text)
     vyzov_finger_load = count_finger_load_vyzov(text)
     dictor_finger_load = count_finger_load_dictor(text)
     scoropis_finger_load = count_finger_load_scoropis(text)
+    penalty_qwerty = count_load_penalty_qwerty(text)
+    penalty_vyzov = count_load_penalty_vyzov(text)
     print(qwerty_finger_load)
     print(vyzov_finger_load)
     print(dictor_finger_load)
@@ -69,7 +73,13 @@ if __name__ == "__main__":
     print(fing_d_vyzov)
     print(fing_d_dictor)
     print(fing_d_scoropis)
+    print(penalty_qwerty)
+    print(penalty_vyzov)
+
     print('Вывод:')
     vyvod_gistogramma(qwerty_finger_load,
                       vyzov_finger_load, dictor_finger_load,
                       scoropis_finger_load)
+    proucent = proucent_penalty(penalty_qwerty, penalty_vyzov)
+    print(proucent)
+    vyvod_gistogramma2(penalty_qwerty, penalty_vyzov)
