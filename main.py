@@ -29,7 +29,7 @@ from function import count_finger_load_dictor, \
     count_load_penalty_vyzov, proucent_penalty
 
 if __name__ == "__main__":
-    with open('full_text.txt', "r", encoding='utf-8') as f:
+    with open('voina-i-mir.txt', "r", encoding='utf-8') as f:
         text = f.read()
     qwerty_finger_load = count_finger_load_qwerty(text)
     vyzov_finger_load = count_finger_load_vyzov(text)
@@ -49,38 +49,11 @@ if __name__ == "__main__":
     right_dictor = load_hand_right(dictor_finger_load)
     left_scoropis = load_hand_left(scoropis_finger_load)
     right_scoropis = load_hand_right(scoropis_finger_load)
-    print('ЙЦУКЕН')
-    print('Нагрузка на левую руку в процентах:', left_qwerty, '%')
-    print('Нагрузка на правую руку в процентах:', right_qwerty, '%')
-    print('ВЫЗОВ')
-    print('Нагрузка на левую руку в процентах:', left_vyzov, '%')
-    print('Нагрузка на правую руку в процентах:', right_vyzov, '%')
-    print('ДИКТОР')
-    print('Нагрузка на левую руку в процентах:', left_dictor, '%')
-    print('Нагрузка на правую руку в процентах:', right_dictor, '%')
-    print('СКОРОПИСЬ')
-    print('Нагрузка на левую руку в процентах:', left_scoropis, '%')
-    print('Нагрузка на правую руку в процентах:', right_scoropis, '%')
-    fing = ['левый мизинец', 'левый безымянный', 'левый средний',
-            'левый указательный', 'левый большой',
-            'правый большой', 'правый указательный',
-            'правый средний', 'правый безымянный', 'правый мизинец']
-    fing_d_qwerty = dict(zip(fing, qwerty_finger_load))
-    fing_d_vyzov = dict(zip(fing, vyzov_finger_load))
-    fing_d_dictor = dict(zip(fing, dictor_finger_load))
-    fing_d_scoropis = dict(zip(fing, scoropis_finger_load))
-    print('Количество нажатий каждым пальцем в различных раскладках')
-    print('ЙЦУКЕН:', fing_d_qwerty)
-    print('ВЫЗОВ:', fing_d_vyzov)
-    print('ДИКТОР:', fing_d_dictor)
-    print('СКОРОПИСЬ:', fing_d_scoropis)
     print('Количество штрафов в раскладке ЙЦУКЕН на каждый палец:', penalty_qwerty)
     print('Количество штрафов в раскладке ВЫЗОВ на каждый палец:', penalty_vyzov)
     proucent = proucent_penalty(penalty_qwerty, penalty_vyzov)
     print('Разница между штрафами в процентах:',proucent)
     print('Вывод:')
-    vyvod_gistogramma(qwerty_finger_load,
-                      vyzov_finger_load, dictor_finger_load,
-                      scoropis_finger_load, penalty_qwerty, penalty_vyzov)
+    vyvod_gistogramma(penalty_qwerty, penalty_vyzov)
 
 

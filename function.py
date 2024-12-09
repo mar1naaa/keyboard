@@ -314,38 +314,7 @@ def proucent_penalty(qwerty, vyzov):
     pr[9] = abs(round(((qwerty[9]-vyzov[9])/((qwerty[9]+vyzov[9])/2))*100))
     return pr
 
-def vyvod_gistogramma(layout1, layout2, layout3, layout4, layout5, layout6):
-    plt.figure(figsize=(10, 6))
-    fingers = ['Мизинец (левая)', 'Безымянный (левая)', 'Средний (левая)',
-               'Указательный (левая)', 'Большой (левая)',
-               'Большой (правая)', 'Указательный (правая)',
-               'Средний (правая)', 'Безымянный (правая)', 'Мизинец (правая)']
-    color1 = ['#ff0033']
-    color2 = ['#0000ff']
-    color3 = ['#009900']
-    color4 = ['#ffcc00']
-    index = np.arange(len(fingers))
-    bar_width = 0.2
-    for i in range(len(fingers)):
-        plt.barh(index[i] - bar_width * 1.5, layout4[i], bar_width,
-                 label='Скоропись' if i == 0 else "", color=color4,
-                 alpha=1.0)
-        plt.barh(index[i] - bar_width * 0.5, layout3[i], bar_width,
-                 label='Диктор' if i == 0 else "", color=color3,
-                 alpha=1.0)
-        plt.barh(index[i] + bar_width * 0.5, layout2[i], bar_width,
-                 label='Вызов' if i == 0 else "", color=color2,
-                 alpha=1.0)
-        plt.barh(index[i] + bar_width * 1.5, layout1[i], bar_width,
-                 label='Йцукен' if i == 0 else "", color=color1,
-                 alpha=1.0)
-    plt.ylabel('Пальцы')
-    plt.xlabel('Количество нажатий')
-    plt.title('Сравнение нагрузок на пальцы в различных раскладках')
-    plt.gca().xaxis.set_major_formatter(plt.FuncFormatter(lambda x, _: f'{int(x/1000)}k'))
-    plt.yticks(index, fingers)
-    plt.legend()
-    plt.tight_layout()
+def vyvod_gistogramma(layout5, layout6):
 
     plt.figure(figsize=(10, 6))
     fingers = ['Мизинец (левая)', 'Безымянный (левая)', 'Средний (левая)', 'Указательный (левая)', 'Большой (левая)',
@@ -368,7 +337,6 @@ def vyvod_gistogramma(layout1, layout2, layout3, layout4, layout5, layout6):
     plt.xlabel('Штрафы (в тысячах)')
     plt.title('Штрафы на пальцы в раскладках ЙЦУКЕН и ВЫЗОВ')
 
-    # Форматируем значения по оси X
     plt.gca().xaxis.set_major_formatter(plt.FuncFormatter(lambda x, _: f'{int(x/1000)}k'))
 
     plt.legend()
