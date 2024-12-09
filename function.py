@@ -314,7 +314,7 @@ def proucent_penalty(qwerty, vyzov):
     pr[9] = abs(round(((qwerty[9]-vyzov[9])/((qwerty[9]+vyzov[9])/2))*100))
     return pr
 
-def vyvod_gistogramma(layout1, layout2, layout3, layout4, layout5, layout6):
+def vyvod_gistogramma(layout1, layout2, layout3, layout4):
     '''
         Выводит графики количества нажатий и штрафов
     '''
@@ -347,32 +347,6 @@ def vyvod_gistogramma(layout1, layout2, layout3, layout4, layout5, layout6):
     plt.title('Сравнение нагрузок на пальцы в различных раскладках, файл 25мб')
     plt.gca().xaxis.set_major_formatter(plt.FuncFormatter(lambda x, _: f'{int(x/1000)}k'))
     plt.yticks(index, fingers)
-    plt.legend()
-    plt.tight_layout()
-
-    plt.figure(figsize=(10, 6))
-    fingers = ['Мизинец (левая)', 'Безымянный (левая)', 'Средний (левая)', 'Указательный (левая)', 'Большой (левая)',
-               'Большой (правая)', 'Указательный (правая)', 'Средний (правая)', 'Безымянный (правая)',
-               'Мизинец (правая)']
-    color1 = '#ff0033'
-    color2 = '#0000ff'
-
-    index = np.arange(len(fingers))
-    bar_width = 0.2
-
-    for i in range(len(fingers)):
-        plt.barh(index[i] - bar_width / 2, layout6[i], bar_width, label='Вызов' if i == 0 else "", color=color1,
-                 alpha=0.7)
-        plt.barh(index[i] + bar_width / 2, layout5[i], bar_width, label='Йцукен' if i == 0 else "", color=color2,
-                 alpha=1.0)
-
-    plt.yticks(index, fingers)
-    plt.ylabel('Пальцы')
-    plt.xlabel('Штрафы (в тысячах)')
-    plt.title('Штрафы на пальцы в раскладках ЙЦУКЕН и ВЫЗОВ, файл 25мб')
-
-    plt.gca().xaxis.set_major_formatter(plt.FuncFormatter(lambda x, _: f'{int(x/1000)}k'))
-
     plt.legend()
     plt.tight_layout()
     plt.show()

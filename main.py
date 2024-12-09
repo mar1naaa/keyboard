@@ -75,14 +75,9 @@ if __name__ == "__main__":
     print('ВЫЗОВ:', fing_d_vyzov)
     print('ДИКТОР:', fing_d_dictor)
     print('СКОРОПИСЬ:', fing_d_scoropis)
-    print('Количество штрафов в раскладке ЙЦУКЕН на каждый палец:', penalty_qwerty)
-    print('Количество штрафов в раскладке ВЫЗОВ на каждый палец:', penalty_vyzov)
-    proucent = proucent_penalty(penalty_qwerty, penalty_vyzov)
-    print('Разница между штрафами в процентах:',proucent)
-    print('Вывод:')
     vyvod_gistogramma(qwerty_finger_load,
                       vyzov_finger_load, dictor_finger_load,
-                      scoropis_finger_load, penalty_qwerty, penalty_vyzov)
+                      scoropis_finger_load)
 
     
 
