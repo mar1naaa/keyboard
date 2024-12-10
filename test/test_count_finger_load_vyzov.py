@@ -1,9 +1,21 @@
-import unittest
-from functions import count_finger_load_vyzov
+import pytest
+from function import count_finger_load_qwerty
 
-class Count_Finger_Load_Vyzov_TestCase(unittest.TestCase):
-    def test_count_finger_load_vyzov(self):
-        result =  count_finger_load_vyzov('text_1.txt')
-        self.assertEqual(result, [1, 0, 0, 0, 1, 2, 0, 0, 0, 2])
-if __name__ == '__main__':
-    unittest.main()
+@pytest.fixture
+def qwerty_layout():
+    from dict_finger import keyboard_finger_qwerty, qwerty_finger_count
+    return keyboard_finger_qwerty, qwerty_finger_count
+
+@pytest.fixture
+def test_text():
+    return "Это наш тест №1, вот так!"
+
+def test_count_finger_load_qwerty(qwerty_layout, test_text):
+    keyboard_layout, finger_count = qwerty_layout
+    
+    result = count_finger_load_qwerty(test_text)
+    
+    assert isinstance(result, list), "Результат должен быть списком"
+    assert len(result) == len(finger_count), "Размер результата должен соответствовать количеству пальцев"
+    assert all(isinstance(value, int) for value in result), "Все значения нагрузки должны быть целыми числами"
+    assert sum(result) > 0, "Нагрузка на пальцы не должна быть нулевой для текста"

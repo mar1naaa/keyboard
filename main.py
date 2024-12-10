@@ -1,33 +1,14 @@
 """
-Данный скрипт анализирует текстовый файл, подсчитывает нагрузку на пальцы
-при наборе текста в двух клавиатурных раскладках: ЙЦУКЕН и ВЫЗОВ.
-Также вычисляет процент нагрузки на левую и правую руки для каждой раскладки
-и выводит результаты, включая визуализацию в виде гистограммы.
-Используемые функции:
- count_finger_load_qwerty(text): Подсчитывает нагрузку на пальцы (ЙЦУКЕН).
-- count_finger_load_vyzov(text): Подсчитывает нагрузку на пальцы (ВЫЗОВ).
-- load_hand_left(list): Вычисляет процент нагрузки на левую руку.
-- load_hand_right(list): Вычисляет процент нагрузки на правую руку.
-- vyvod_gistogramma(layout1, layout2): Вывод итоговой гистограммы.
-Входные данные:
-- text (str): Путь к текстовому файлу, вводится пользователем.
-Выводимые данные:
-Нагрузка на левую и правую руки в процентах для раскладок: ЙЦУКЕН и Вызов.
-- Гистограмма, показывающая нагрузку на каждый палец в обеих раскладах.
-Пример использования:
-Введите файл с текстом: ваш_файл_с_текстом.txt
-ЙЦУКЕН
-Нагрузка на левую руку в процентах: X% Нагрузка на правую руку в процентах: Y%
-ЫЗОВ
-Нагрузка на левую руку в процентах: Z% Нагрузка на правую руку в процентах: W%
+Лабораторная №1
+Считывает количество нажатий
+каждым пальцем
+в различных раскладках
 """
 
 from function import count_finger_load_dictor, \
     count_finger_load_qwerty, count_finger_load_scoropis, \
     count_finger_load_vyzov, load_hand_left, \
-    load_hand_right, vyvod_gistogramma, count_load_penalty_qwerty, \
-    count_load_penalty_vyzov, proucent_penalty
-from dict_finger import keyboard_finger_dictor, keyboard_finger_qwerty, keyboard_finger_scoropis, keyboard_finger_vyzov
+    load_hand_right, vyvod_gistogramma
 if __name__ == "__main__":
     with open('full_text.txt', "r", encoding='utf-8') as f:
         text = f.read()
@@ -36,8 +17,6 @@ if __name__ == "__main__":
     vyzov_finger_load = count_finger_load_vyzov(text)
     dictor_finger_load = count_finger_load_dictor(text)
     scoropis_finger_load = count_finger_load_scoropis(text)
-    penalty_qwerty = count_load_penalty_qwerty(text)
-    penalty_vyzov = count_load_penalty_vyzov(text)
     print(qwerty_finger_load)
     print(vyzov_finger_load)
     print(dictor_finger_load)
@@ -78,7 +57,3 @@ if __name__ == "__main__":
     vyvod_gistogramma(qwerty_finger_load,
                       vyzov_finger_load, dictor_finger_load,
                       scoropis_finger_load)
-
-    
-
-
