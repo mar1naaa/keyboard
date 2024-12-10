@@ -67,15 +67,15 @@ git checkout lab5
 
 Лабораторная №3 "Подсчёт штрафов на пальцы в раскладках *Вызов* и *Йцукен*":
 
-![лабораторная 3](https://st.overclockers.ru/legacy/v3/02/29/29/2016/04/10/0u4311987e-6f40b1c2-549b7887.png)
+![лабораторная 3](https://sun9-75.userapi.com/impg/LoNv6hDQHHcfDP7R2Ss1MyP9zlvy6bg9JDBByg/n4zxCHhx8uc.jpg?size=1000x600&quality=95&sign=3b75ffe9835befe5653755c54f7a30ab&type=album)
 
 Лабораторная №4 "Подсчёт диграмм, нажатых удобным перебором в различных раскладках":
 
-![лабораторная 4](https://st.overclockers.ru/legacy/v3/02/29/29/2016/04/10/0u4311987e-6f40b1c2-549b7887.png)
+![лабораторная 4](https://sun9-67.userapi.com/impg/I1FIfOCDN0w83oy9mBy_WOWOj8zKRl4jSpWv4w/V-qTFpTyGsM.jpg?size=1000x600&quality=95&sign=c85e61406f64c8fb00c99bd4e3e06029&type=album)
 
 Лабораторная №5 "Подсчёт диграмм и триграмм, нажатых удобным перебором в раскладках *Вызов* и *Йцукен*":
 
-![лабораторная 5](https://st.overclockers.ru/legacy/v3/02/29/29/2016/04/10/0u4311987e-6f40b1c2-549b7887.png)
+![лабораторная 5](https://sun9-25.userapi.com/impg/aBzTWkaiCiCODhCz2WMMFhFGFbJJfupsSMDCoA/lH9oFlF4j14.jpg?size=1440x600&quality=95&sign=be04780a4b556388591079242bf2194a&type=album)
 
 
 ## Вывод
