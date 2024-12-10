@@ -38,25 +38,40 @@ def count_digrams_with_layout(filename, fingers_dict):
                 second_hand_1 = get_hand_and_finger_1(second, fingers_dict)
 
                 if first_hand == "l" and second_hand == "l":
-                    if (first_hand_1 == "i5" and second_hand_1 == 'i4') or (first_hand_1 == "i5" and second_hand_1 == 'i3')\
-                            or (first_hand_1 == "i5" and second_hand_1 == 'i2') or (first_hand_1 == "i5" and second_hand_1 == 'i1'):
+                    if (first_hand_1 == "i5" and second_hand_1 == 'i4')\
+                          or (first_hand_1 == "i5" and second_hand_1 == 'i3')\
+                            or (first_hand_1 == "i5"
+                                and second_hand_1 == 'i2')\
+                            or (first_hand_1 == "i5"
+                                and second_hand_1 == 'i1'):
                         left_hand_digrams += 1
-                    elif (first_hand_1 == "i4" and second_hand_1 == 'i3') or (first_hand_1 == "i4" and second_hand_1 == 'i2')\
-                            or (first_hand_1 == "i4" and second_hand_1 == 'i1'):
+                    elif (first_hand_1 == "i4" and second_hand_1 == 'i3')\
+                        or (first_hand_1 == "i4" and second_hand_1 == 'i2')\
+                            or (first_hand_1 == "i4"
+                                and second_hand_1 == 'i1'):
                         left_hand_digrams += 1
-                    elif (first_hand_1 == "i3" and second_hand_1 == 'i2') or (first_hand_1 == "fi3" and second_hand_1 == 'i1'):
+                    elif (first_hand_1 == "i3" and second_hand_1 == 'i2')\
+                        or (first_hand_1 == "fi3" and
+                            second_hand_1 == 'i1'):
                         left_hand_digrams += 1
                     elif first_hand_1 == "i2" and second_hand_1 == 'i1':
                         left_hand_digrams += 1
                 elif first_hand == "r" and second_hand == "r":
                     if (first_hand_1 == "i5" and second_hand_1 == 'i4') or (
                             first_hand_1 == "i5" and second_hand_1 == 'i3') \
-                            or (first_hand_1 == "i5" and second_hand_1 == 'i2') or (first_hand_1 == "i5" and second_hand_1 == 'i1'):
+                            or (first_hand_1 == "i5"
+                                and second_hand_1 == 'i2') or (
+                                first_hand_1 == "i5"
+                                and second_hand_1 == 'i1'):
                         right_hand_digrams += 1
-                    elif (first_hand_1 == "i4" and second_hand_1 == 'i3') or (first_hand_1 == "i4" and second_hand_1 == 'i2')\
-                            or (first_hand_1 == "i4" and second_hand_1 == 'i1'):
+                    elif (first_hand_1 == "i4" and second_hand_1 == 'i3') or (
+                        first_hand_1 == "i4" and second_hand_1 == 'i2')\
+                            or (first_hand_1 == "i4"
+                                and second_hand_1 == 'i1'):
                         right_hand_digrams += 1
-                    elif (first_hand_1 == "i3" and second_hand_1 == 'i2') or (first_hand_1 == "i3" and second_hand_1 == 'i1'):
+                    elif (first_hand_1 == "i3" and second_hand_1 == 'i2') or (
+                        first_hand_1 == "i3" and
+                            second_hand_1 == 'i1'):
                         right_hand_digrams += 1
                     elif first_hand_1 == "i2" and second_hand_1 == 'i1':
                         right_hand_digrams += 1
@@ -77,9 +92,11 @@ def vyvod_gistogramma3(layout7, layout8):
     bar_width = 0.2
 
     for i in range(len(rasklads)):
-        plt.barh(index[i] - bar_width / 2, layout7[i], bar_width, label='Левая рука' if i == 0 else "", color=color1,
+        plt.barh(index[i] - bar_width / 2, layout7[i], bar_width,
+                 label='Левая рука' if i == 0 else "", color=color1,
                  alpha=0.7)
-        plt.barh(index[i] + bar_width / 2, layout8[i], bar_width, label='Правая рука' if i == 0 else "", color=color2,
+        plt.barh(index[i] + bar_width / 2, layout8[i], bar_width,
+                 label='Правая рука' if i == 0 else "", color=color2,
                  alpha=1.0)
 
     plt.yticks(index, rasklads)
