@@ -44,11 +44,11 @@ git clone https://github.com/mar1naaa/keyboard.git
 
 Запустить лабу 
 
-### Для переключения между лабораторными работами:  
-
 ```sh
 python3 main.py
 ```
+
+### Для переключения между лабораторными работами:  
 
 Лабораторная №1 "Подсчёт нагрузок на пальцы в различных раскладках" :
 ```sh
@@ -78,11 +78,11 @@ git checkout lab5
 
 **Лабораторная №4 "Подсчёт диграмм, нажатых удобным перебором в различных раскладках":**
 
-![лабораторная 4](https://sun9-67.userapi.com/impg/I1FIfOCDN0w83oy9mBy_WOWOj8zKRl4jSpWv4w/V-qTFpTyGsM.jpg?size=1000x600&quality=95&sign=c85e61406f64c8fb00c99bd4e3e06029&type=album)
+![лабораторная 4](https://sun9-46.userapi.com/impg/_jN6nFcOpgEsQGTDDtzOpJasXd7k6S_SSJfCuA/g9x9l9XHNP8.jpg?size=1000x600&quality=95&sign=c628ccad0e7f65879b586dde29a370e0&type=album)
 
 **Лабораторная №5 "Подсчёт диграмм и триграмм, нажатых удобным перебором в раскладках *Вызов* и *Йцукен*":**
 
-![лабораторная 5](https://sun9-25.userapi.com/impg/aBzTWkaiCiCODhCz2WMMFhFGFbJJfupsSMDCoA/lH9oFlF4j14.jpg?size=1440x600&quality=95&sign=be04780a4b556388591079242bf2194a&type=album)
+![лабораторная 5](https://sun9-22.userapi.com/impg/AP-Or1kXMxo_tV8l5sDZf3wyJy2ecFcvQ2G0cQ/o1oGcRK3Tdc.jpg?size=1440x600&quality=95&sign=fea2688c7845f27bbae74c2bc8aa0001&type=album)
 
 
 ## Вывод
