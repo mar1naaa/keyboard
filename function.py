@@ -24,6 +24,8 @@ def get_hand_and_finger_1(char, fingers_dict):
 
 def count_digrams_with_layout(filename, fingers_dict):
     """Считает количество диграмм для выбранной раскладки"""
+    left_count_digrams = 0
+    right_count_digrams = 0
     left_hand_digrams = 0
     right_hand_digrams = 0
 
@@ -38,48 +40,49 @@ def count_digrams_with_layout(filename, fingers_dict):
                 second_hand_1 = get_hand_and_finger_1(second, fingers_dict)
 
                 if first_hand == "l" and second_hand == "l":
-                    if (first_hand_1 == "i5" and second_hand_1 == 'i4')\
-                          or (first_hand_1 == "i5" and second_hand_1 == 'i3')\
-                            or (first_hand_1 == "i5"
-                                and second_hand_1 == 'i2')\
-                            or (first_hand_1 == "i5"
-                                and second_hand_1 == 'i1'):
+                    left_count_digrams += 1
+                    if (first_hand_1 == "i5" and second_hand_1 == 'i4') or \
+                        (first_hand_1 == "i5" and second_hand_1 == 'i3')\
+                            or (first_hand_1 == "i5" and
+                                second_hand_1 == 'i2') or \
+                            (first_hand_1 == "i5" and
+                                second_hand_1 == 'i1'):
                         left_hand_digrams += 1
-                    elif (first_hand_1 == "i4" and second_hand_1 == 'i3')\
-                        or (first_hand_1 == "i4" and second_hand_1 == 'i2')\
-                            or (first_hand_1 == "i4"
-                                and second_hand_1 == 'i1'):
+                    elif (first_hand_1 == "i4" and second_hand_1 == 'i3') or \
+                        (first_hand_1 == "i4" and second_hand_1 == 'i2')\
+                            or (first_hand_1 == "i4" and
+                                second_hand_1 == 'i1'):
                         left_hand_digrams += 1
-                    elif (first_hand_1 == "i3" and second_hand_1 == 'i2')\
-                        or (first_hand_1 == "fi3" and
-                            second_hand_1 == 'i1'):
+                    elif (first_hand_1 == "i3" and second_hand_1 == 'i2') or \
+                        (first_hand_1 == "fi3" and
+                         second_hand_1 == 'i1'):
                         left_hand_digrams += 1
                     elif first_hand_1 == "i2" and second_hand_1 == 'i1':
                         left_hand_digrams += 1
                 elif first_hand == "r" and second_hand == "r":
+                    right_count_digrams += 1
                     if (first_hand_1 == "i5" and second_hand_1 == 'i4') or (
                             first_hand_1 == "i5" and second_hand_1 == 'i3') \
-                            or (first_hand_1 == "i5"
-                                and second_hand_1 == 'i2') or (
-                                first_hand_1 == "i5"
-                                and second_hand_1 == 'i1'):
+                            or (first_hand_1 == "i5" and
+                                second_hand_1 == 'i2') or \
+                            (first_hand_1 == "i5" and second_hand_1 == 'i1'):
                         right_hand_digrams += 1
-                    elif (first_hand_1 == "i4" and second_hand_1 == 'i3') or (
-                        first_hand_1 == "i4" and second_hand_1 == 'i2')\
-                            or (first_hand_1 == "i4"
-                                and second_hand_1 == 'i1'):
+                    elif (first_hand_1 == "i4" and second_hand_1 == 'i3') or \
+                        (first_hand_1 == "i4" and second_hand_1 == 'i2')\
+                            or (first_hand_1 == "i4" and
+                                second_hand_1 == 'i1'):
                         right_hand_digrams += 1
-                    elif (first_hand_1 == "i3" and second_hand_1 == 'i2') or (
-                        first_hand_1 == "i3" and
-                            second_hand_1 == 'i1'):
+                    elif (first_hand_1 == "i3" and second_hand_1 == 'i2') or \
+                            (first_hand_1 == "i3" and second_hand_1 == 'i1'):
                         right_hand_digrams += 1
                     elif first_hand_1 == "i2" and second_hand_1 == 'i1':
                         right_hand_digrams += 1
 
-    return left_hand_digrams, right_hand_digrams
+    return left_count_digrams, right_count_digrams, \
+        left_hand_digrams, right_hand_digrams
 
 
-def vyvod_gistogramma3(layout7, layout8):
+def vyvod_gistogramma3(layout7, layout8, layout9, layout10):
     """
         Вывод в виде графика для диграмм, нажатых удобным перебором
     """
@@ -87,22 +90,29 @@ def vyvod_gistogramma3(layout7, layout8):
     rasklads = ['ЙЦУКЕН', 'ВЫЗОВ', 'ДИКТОР', 'СКОРОПИСЬ']
     color1 = '#ff0033'
     color2 = '#0000ff'
+    color3 = 'green'
+    color4 = 'yellow'
 
     index = np.arange(len(rasklads))
     bar_width = 0.2
 
     for i in range(len(rasklads)):
-        plt.barh(index[i] - bar_width / 2, layout7[i], bar_width,
-                 label='Левая рука' if i == 0 else "", color=color1,
-                 alpha=0.7)
-        plt.barh(index[i] + bar_width / 2, layout8[i], bar_width,
-                 label='Правая рука' if i == 0 else "", color=color2,
+        plt.barh(index[i] - bar_width / 2, layout9[i], bar_width,
+                 label='Общее для левой' if i == 0 else "", color=color3,
                  alpha=1.0)
-
+        plt.barh(index[i] - 1.5*bar_width, layout10[i], bar_width,
+                 label='Общее для правой' if i == 0 else "", color=color4,
+                 alpha=1.0)
+        plt.barh(index[i] - 2.5*bar_width, layout7[i], bar_width,
+                 label='Удобные для левой' if i == 0 else "", color=color1,
+                 alpha=1.0)
+        plt.barh(index[i] - 3.5*bar_width, layout8[i], bar_width,
+                 label='Удобные для правой' if i == 0 else "", color=color2,
+                 alpha=1.0)
     plt.yticks(index, rasklads)
     plt.xlabel('Количество диграмм')
     plt.ylabel('Раскладки')
-    plt.title('Диграммы, нажатые удобным перебором,'
+    plt.title('Диграммы, нажатые одной рукой,'
               'в  различных раскладках, файл digrams')
     plt.legend()
     plt.tight_layout()
