@@ -25,6 +25,8 @@ def get_hand_and_finger_1(char, fingers_dict):
 
 def count_digrams_with_layout_1(filename, fingers_dict):
     """Считает количество диграмм для выбранной раскладки"""
+    left_count_digrams = 0
+    right_count_digrams = 0
     left_hand_digrams = 0
     right_hand_digrams = 0
 
@@ -40,49 +42,52 @@ def count_digrams_with_layout_1(filename, fingers_dict):
                 second_hand_1 = get_hand_and_finger_1(second, fingers_dict)
 
                 if first_hand == "l" and second_hand == "l":
-                    if (first_hand_1 == "i5" and second_hand_1 == 'i4')\
-                         or (first_hand_1 == "i5" and second_hand_1 == 'i3')\
-                            or (first_hand_1 == "i5"
-                                and second_hand_1 == 'i2')\
-                            or (first_hand_1 == "i5"
-                                and second_hand_1 == 'i1'):
+                    left_count_digrams += 1
+                    if (first_hand_1 == "i5" and second_hand_1 == 'i4') or \
+                        (first_hand_1 == "i5" and second_hand_1 == 'i3')\
+                            or (first_hand_1 == "i5" and
+                                second_hand_1 == 'i2') or \
+                            (first_hand_1 == "i5" and
+                                second_hand_1 == 'i1'):
                         left_hand_digrams += 1
-                    elif (first_hand_1 == "i4" and second_hand_1 == 'i3')\
-                        or (first_hand_1 == "i4" and second_hand_1 == 'i2')\
-                            or (first_hand_1 == "i4"
-                                and second_hand_1 == 'i1'):
+                    elif (first_hand_1 == "i4" and second_hand_1 == 'i3') or \
+                        (first_hand_1 == "i4" and second_hand_1 == 'i2')\
+                            or (first_hand_1 == "i4" and
+                                second_hand_1 == 'i1'):
                         left_hand_digrams += 1
-                    elif (first_hand_1 == "i3" and second_hand_1 == 'i2')\
-                            or (first_hand_1 == "fi3"
-                                and second_hand_1 == 'i1'):
+                    elif (first_hand_1 == "i3" and second_hand_1 == 'i2') or \
+                        (first_hand_1 == "fi3" and
+                         second_hand_1 == 'i1'):
                         left_hand_digrams += 1
                     elif first_hand_1 == "i2" and second_hand_1 == 'i1':
                         left_hand_digrams += 1
                 elif first_hand == "r" and second_hand == "r":
+                    right_count_digrams += 1
                     if (first_hand_1 == "i5" and second_hand_1 == 'i4') or (
                             first_hand_1 == "i5" and second_hand_1 == 'i3') \
-                            or (first_hand_1 == "i5"
-                                and second_hand_1 == 'i2')\
-                            or (first_hand_1 == "i5"
-                                and second_hand_1 == 'i1'):
+                            or (first_hand_1 == "i5" and
+                                second_hand_1 == 'i2') or \
+                            (first_hand_1 == "i5" and
+                                second_hand_1 == 'i1'):
                         right_hand_digrams += 1
-                    elif (first_hand_1 == "i4" and second_hand_1 == 'i3')\
-                            or (first_hand_1 == "i4"
-                                and second_hand_1 == 'i2')\
-                            or (first_hand_1 == "i4"
-                                and second_hand_1 == 'i1'):
+                    elif (first_hand_1 == "i4" and second_hand_1 == 'i3') or \
+                        (first_hand_1 == "i4" and second_hand_1 == 'i2')\
+                            or (first_hand_1 == "i4" and
+                                second_hand_1 == 'i1'):
                         right_hand_digrams += 1
-                    elif (first_hand_1 == "i3" and second_hand_1 == 'i2')\
-                            or (first_hand_1 == "i3"
-                                and second_hand_1 == 'i1'):
+                    elif (first_hand_1 == "i3" and second_hand_1 == 'i2') or \
+                            (first_hand_1 == "i3" and second_hand_1 == 'i1'):
                         right_hand_digrams += 1
                     elif first_hand_1 == "i2" and second_hand_1 == 'i1':
                         right_hand_digrams += 1
-    return left_hand_digrams, right_hand_digrams
+    return left_count_digrams, right_count_digrams, \
+        left_hand_digrams, right_hand_digrams
 
 
 def count_trigrams_with_layout(filename, fingers_dict):
     """Считает количество триграмм для выбранной раскладки"""
+    left_count_trigrams = 0
+    right_count_trigrams = 0
     left_hand_trigrams = 0
     right_hand_trigrams = 0
 
@@ -98,74 +103,58 @@ def count_trigrams_with_layout(filename, fingers_dict):
                 first_hand_1 = get_hand_and_finger_1(first, fingers_dict)
                 second_hand_1 = get_hand_and_finger_1(second, fingers_dict)
                 third_hand_1 = get_hand_and_finger_1(third, fingers_dict)
-                if first_hand == "l" \
-                        and second_hand == "l" and third_hand == 'l':
+                if first_hand == "l" and second_hand == "l" \
+                        and third_hand == 'l':
+                    left_count_trigrams += 1
                     if (first_hand_1 == "i5" and second_hand_1 == 'i4'
                         and third_hand_1 == 'i3') \
-                        or (first_hand_1 == "i5"
-                            and second_hand_1 == 'i4'
+                        or (first_hand_1 == "i5" and second_hand_1 == 'i4'
                             and third_hand_1 == 'i2') \
-                        or (first_hand_1 == "i5"
-                            and second_hand_1 == 'i4'
+                        or (first_hand_1 == "i5" and second_hand_1 == 'i4'
                             and third_hand_1 == 'i1') \
-                        or (first_hand_1 == "i5"
-                            and second_hand_1 == 'i3'
+                        or (first_hand_1 == "i5" and second_hand_1 == 'i3'
                             and third_hand_1 == 'i2') \
-                        or (first_hand_1 == "i5"
-                            and second_hand_1 == 'i3'
+                        or (first_hand_1 == "i5" and second_hand_1 == 'i3'
                             and third_hand_1 == 'i1') \
-                        or (first_hand_1 == "i5"
-                            and second_hand_1 == 'i2'
+                        or (first_hand_1 == "i5" and second_hand_1 == 'i2'
                             and third_hand_1 == 'i1'):
                         left_hand_trigrams += 1
-                    elif (first_hand_1 == "i4"
-                          and second_hand_1 == 'i3' and third_hand_1 == 'i2') \
-                        or (first_hand_1 == "i4"
-                            and second_hand_1 == 'i3'
-                            and third_hand_1 == 'i1') \
-                        or (first_hand_1 == "i4"
-                            and second_hand_1 == 'i2'
-                            and third_hand_1 == 'i1') \
-                        or (first_hand_1 == "i3"
-                            and second_hand_1 == 'i2'
-                            and third_hand_1 == 'i1'):
-                        left_hand_trigrams += 1
-                if first_hand == "r"\
-                    and second_hand == "r" and \
-                        third_hand == 'r':
-                    if (first_hand_1 == "i5"
-                        and second_hand_1 == 'i4'
-                        and third_hand_1 == 'i3') \
-                        or (first_hand_1 == "i5"
-                            and second_hand_1 == 'i4'
-                            and third_hand_1 == 'i2') \
-                        or (first_hand_1 == "i5"
-                            and second_hand_1 == 'i4'
-                            and third_hand_1 == 'i1') \
-                        or (first_hand_1 == "i5"
-                            and second_hand_1 == 'i3'
-                            and third_hand_1 == 'i2') \
-                        or (first_hand_1 == "i5"
-                            and second_hand_1 == 'i3'
-                            and third_hand_1 == 'i1') \
-                        or (first_hand_1 == "i5"
-                            and second_hand_1 == 'i2'
-                            and third_hand_1 == 'i1'):
-                        right_hand_trigrams += 1
-                    elif (first_hand_1 == "i4"
-                          and second_hand_1 == 'i3'
+                    elif (first_hand_1 == "i4" and second_hand_1 == 'i3'
                           and third_hand_1 == 'i2') \
-                        or (first_hand_1 == "i4"
-                            and second_hand_1 == 'i3'
+                        or (first_hand_1 == "i4" and second_hand_1 == 'i3'
                             and third_hand_1 == 'i1') \
-                        or (first_hand_1 == "i4"
-                            and second_hand_1 == 'i2'
+                        or (first_hand_1 == "i4" and second_hand_1 == 'i2'
                             and third_hand_1 == 'i1') \
-                        or (first_hand_1 == "i3"
-                            and second_hand_1 == 'i2'
+                        or (first_hand_1 == "i3" and second_hand_1 == 'i2'
+                            and third_hand_1 == 'i1'):
+                        left_hand_trigrams += 1
+                if first_hand == "r" and second_hand == "r" \
+                        and third_hand == 'r':
+                    right_count_trigrams += 1
+                    if (first_hand_1 == "i5" and second_hand_1 == 'i4'
+                        and third_hand_1 == 'i3') \
+                        or (first_hand_1 == "i5" and second_hand_1 == 'i4'
+                            and third_hand_1 == 'i2') \
+                        or (first_hand_1 == "i5" and second_hand_1 == 'i4'
+                            and third_hand_1 == 'i1') \
+                        or (first_hand_1 == "i5" and second_hand_1 == 'i3'
+                            and third_hand_1 == 'i2') \
+                        or (first_hand_1 == "i5" and second_hand_1 == 'i3'
+                            and third_hand_1 == 'i1') \
+                        or (first_hand_1 == "i5" and second_hand_1 == 'i2'
                             and third_hand_1 == 'i1'):
                         right_hand_trigrams += 1
-    return left_hand_trigrams, right_hand_trigrams
+                    elif (first_hand_1 == "i4" and second_hand_1 == 'i3'
+                          and third_hand_1 == 'i2')\
+                        or (first_hand_1 == "i4" and second_hand_1 == 'i3'
+                            and third_hand_1 == 'i1')\
+                        or (first_hand_1 == "i4" and second_hand_1 == 'i2'
+                            and third_hand_1 == 'i1')\
+                        or (first_hand_1 == "i3" and second_hand_1 == 'i2'
+                            and third_hand_1 == 'i1'):
+                        right_hand_trigrams += 1
+    return left_count_trigrams, right_count_trigrams, \
+        left_hand_trigrams, right_hand_trigrams
 
 
 def split_into_digrams(word):
@@ -177,7 +166,7 @@ def split_into_digrams(word):
 
 
 def split_into_trigrams(word):
-    """Разделяет слово на триграммы."""
+    """Разделяет слово на триграммы"""
     trigrams = []
     for i in range(len(word) - 2):
         trigrams.append(word[i:i + 3])
@@ -185,11 +174,14 @@ def split_into_trigrams(word):
 
 
 def vyvod_gistogramma4(layout7, layout8):
-    """Вывод в виде графика"""
     plt.figure(figsize=(15, 6))
-    rasklads = ['Удобные диграммы для левой руки',
+    rasklads = ['Количество диграмм для левой руки',
+                'Удобные диграммы для левой руки',
+                'Количество диграмм для правой руки',
                 'Удобные диграммы для правой руки',
+                'Количество триграмм для левой руки',
                 'Удобные триграммы для левой руки',
+                'Количество триграмм для правой руки',
                 'Удобные триграммы для правой руки']
     color = 'red'
     color_1 = 'blue'
@@ -199,10 +191,10 @@ def vyvod_gistogramma4(layout7, layout8):
 
     for i in range(len(rasklads)):
         plt.barh(index[i] - bar_width / 2, layout7[i], bar_width,
-                 label='ЙЦУКЕН' if i == 0 else "", color=color,
+                 label='Йцукен' if i == 0 else "", color=color,
                  alpha=0.7)
         plt.barh(index[i] + bar_width / 2, layout8[i], bar_width,
-                 label='ВЫЗОВ' if i == 0 else "", color=color_1,
+                 label='Вызов' if i == 0 else "", color=color_1,
                  alpha=1.0)
 
     plt.yticks(index, rasklads)
